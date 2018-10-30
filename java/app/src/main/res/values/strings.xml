@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Java auth with JWT</string>
+    <string name="hint_username">Username:</string>
+    <string name="hint_password">Password:</string>
+    <string name="button_login">Login</string>
+    <string name="error_missing_username">Username is missing</string>
+    <string name="error_missing_password">Password is missing</string>
+</resources>

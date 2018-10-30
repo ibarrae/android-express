@@ -1,0 +1,29 @@
+{
+  "name": "express-jwt",
+  "version": "1.0.0",
+  "description": "Express JS with JWT authentication",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js --exec babel-node"
+  },
+  "author": "Esteban Ibarra",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "eslint": "^5.8.0",
+    "express": "^4.16.4",
+    "global": "^4.3.2",
+    "http-errors": "^1.7.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodemon": "^1.18.5"
+  }
+}
