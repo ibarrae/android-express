@@ -12,7 +12,7 @@ userRoutes.get('/users', (req, res) => {
 
 userRoutes.route('/users/:id')
   .get((req, res, next) => {
-
+    console.warn(req)
   })
   .put((req, res, next) => {
 
