@@ -1,20 +1,15 @@
 import express from 'express'
-import { findAllUsers } from '../crud/users'
+import { usersController, getUserController } from '../controllers/user'
 
 export const userRoutes = express.Router()
 
 userRoutes.get('/users', (req, res) => {
-  findAllUsers()
-  const users = [
-    { name: 'Esteban' },
-    { name: 'Jaime' }
-  ]
-  res.status(200).json(users)
+  usersController(req, res)
 })
 
 userRoutes.route('/users/:id')
-  .get((req, res, next) => {
-    console.warn(req)
+  .get((req, res) => {
+    getUserController(req, res)
   })
   .put((req, res, next) => {
 

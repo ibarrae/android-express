@@ -12,13 +12,17 @@ dotenv.config()
 
 app.use(morgan('dev'))
 
-//app.use(jwt({ secret: process.env.JWT_SECRET }).unless({ path: ['/api/login'] }))
+app.use(jwt({ secret: process.env.JWT_SECRET }).unless({ path: ['/api/login'] }))
 
-app.use('/', loginRoute)
+app.use('/api', loginRoute)
 app.use('/api', userRoutes)
 
-app.use((_err, _req, _res, next) => {
-  next(createError(404, 'Requested resource not found.'))
+app.use((err, _req, res) => {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).send(err.message)
+  } else {
+    res.status(404).send('Requested resource was not found.')
+  }
 })
 
 app.use((err, _req, _res, next) => {

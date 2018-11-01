@@ -12,3 +12,4 @@ export const withDB = new Sequelize(dbName, dbUser, dbPassword, {
 export const usersTable = 'jwt_users'
 
 export const stringType = Sequelize.STRING
+export const dateType = Sequelize.DATE
