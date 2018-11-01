@@ -1,8 +1,10 @@
 import express from 'express'
+import { findAllUsers } from '../crud/users'
 
 export const userRoutes = express.Router()
 
 userRoutes.get('/users', (req, res) => {
+  findAllUsers()
   const users = [
     { name: 'Esteban' },
     { name: 'Jaime' }
