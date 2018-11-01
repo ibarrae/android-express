@@ -10,7 +10,7 @@ const app = express()
 
 dotenv.config()
 
-app.use(morgan('dev'))
+//app.use(morgan('dev'))
 
 app.use(jwt({ secret: process.env.JWT_SECRET }).unless({ path: ['/api/login'] }))
 
@@ -29,6 +29,4 @@ app.use((err, _req, _res, next) => {
   next(createError(500, err))
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+export const server = app.listen(3000)
