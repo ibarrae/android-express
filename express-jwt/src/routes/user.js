@@ -1,19 +1,29 @@
 import express from 'express'
-import { usersController, getUserController } from '../controllers/user'
+import {
+  getAllUsersController,
+  getUserController,
+  createUserController,
+  updateUserController,
+  deleteUserController
+} from '../controllers/user'
 
 export const userRoutes = express.Router()
 
-userRoutes.get('/users', (req, res) => {
-  usersController(req, res)
-})
+userRoutes.route('/users')
+  .get((req, res) => {
+    getAllUsersController(req, res)
+  })
+  .post((req, res) => {
+    createUserController(req, res)
+  })
 
 userRoutes.route('/users/:id')
   .get((req, res) => {
     getUserController(req, res)
   })
-  .put((req, res, next) => {
-
+  .put((req, res) => {
+    updateUserController(req, res)
   })
-  .delete((req, res, next) => {
-
+  .delete((req, res) => {
+    deleteUserController(req, res)
   })

@@ -18,3 +18,15 @@ export const findByUsernameAndPassword = ({ name, pass }) => (
 export const findById = (id) => (
   User.findById(id, { raw: true }).then(user => user !== null ? user : null)
 )
+
+export const createUser = (data) => {
+  User.create({ ...data, created_at: Date.now() }, { raw: true }).then(user => user)
+}
+
+export const updateUser = (id, data) => {
+  User.update({ updated_at: Date.now(), ...data }, { where: { id } })
+}
+
+export const deleteUser = (id) => {
+  User.destroy({ where: { id } })
+}
