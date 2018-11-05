@@ -7,7 +7,7 @@
     "start": "nodemon src/app.js --exec babel-node",
     "migrate": "babel-node node_modules/.bin/sequelize db:migrate",
     "migrate:undo:all": "babel-node node_modules/.bin/sequelize db:migrate:undo:all",
-    "test": "mocha --require babel-register"
+    "test": "mocha --exit --require babel-register"
   },
   "author": "Esteban Ibarra",
   "license": "MIT",
