@@ -8,8 +8,6 @@ import { loginRoute } from './routes/login'
 
 const app = express()
 
-dotenv.config()
-
 //app.use(morgan('dev'))
 
 app.use(jwt({ secret: process.env.JWT_SECRET }).unless({ path: ['/api/login'] }))

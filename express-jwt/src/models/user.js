@@ -1,9 +1,8 @@
-import { withDB, stringType, usersTable, dateType } from './utils'
+import { withDB, stringType, dateType, usersTable } from './utils'
 
 export const User = withDB.define(usersTable, {
   name: stringType,
   username: stringType,
   password: stringType,
-  created_at: dateType,
-  updated_at: dateType
+  created_at: dateType
 }, { timestamps: false })
