@@ -41,22 +41,33 @@ export const createUserController = (req, res) => {
 
 export const updateUserController = (req, res) => {
   const id = req.params.id
+  const data = req.body
   if (!id) {
     res.status(400).send('Bad request.')
+  } else if (!data || Object.keys(data).length === 0) {
+    res.status(400).end()
   } else {
-    updateUser(id, req.body).then(user => res.status(200).json({
-      message: 'User updated.'
-    }))
+    updateUser(id, req.body).then(rows =>
+      handleAffectedRows(rows[0], res, 'User updated.')
+    )
   }
 }
 
 export const deleteUserController = (req, res) => {
   const id = req.params.id
   if (!id) {
-    res.status(400).send('Bad request.')
+    res.status(400).end()
   } else {
-    deleteUser(id).then(user => res.status(200).json({
-      message: 'User deleted.'
-    }))
+    deleteUser(id).then(rows =>
+      handleAffectedRows(rows, res, 'User deleted.')
+    )
+  }
+}
+
+const handleAffectedRows = (rows, res, message) => {
+  if (rows === 0) {
+    res.status(404).end()
+  } else {
+    res.status(200).json({ message })
   }
 }
