@@ -3,7 +3,7 @@ import chaiHttp from 'chai-http'
 import { server } from '../src/app'
 import { User } from '../src/models/user'
 import { mockUserData, truncateParams } from './utils'
-import { withDB } from '../src/models/utils';
+import { withDB } from '../src/models/utils'
 
 chai.use(chaiHttp)
 
