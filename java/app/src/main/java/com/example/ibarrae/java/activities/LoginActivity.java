@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void showPasswordError() {
-        ViewUtils.showEditTextError(etPassword, missingUsername);
+        ViewUtils.showEditTextError(etPassword, missingPassword);
     }
 
     @Optional
