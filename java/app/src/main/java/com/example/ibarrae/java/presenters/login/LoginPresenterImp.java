@@ -1,8 +1,10 @@
 package com.example.ibarrae.java.presenters.login;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.example.ibarrae.java.dto.LoginDto;
+import com.example.ibarrae.java.models.LoginModel;
 import com.example.ibarrae.java.presenters.BasePresenter;
 import com.example.ibarrae.java.views.LoginView;
 
@@ -22,6 +24,8 @@ public class LoginPresenterImp extends BasePresenter<LoginView> implements Login
             view.showPasswordError();
             return;
         }
+        LoginModel loginModel = new LoginModel(this.view);
+        loginModel.login(loginDto);
     }
 
 }

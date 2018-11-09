@@ -5,4 +5,7 @@
     <string name="button_login">Login</string>
     <string name="error_missing_username">Username is missing</string>
     <string name="error_missing_password">Password is missing</string>
+    <string name="error_invalid_credentials">Provided credentials are wrong</string>
+    <string name="error_login">Error while trying to login, try again</string>
+    <string name="success_login">Login successful</string>
 </resources>

@@ -1,13 +1,14 @@
 package com.example.ibarrae.java.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
 import com.example.ibarrae.java.R;
 import com.example.ibarrae.java.dto.LoginDto;
 import com.example.ibarrae.java.presenters.login.LoginPresenter;
 import com.example.ibarrae.java.presenters.login.LoginPresenterImp;
+import com.example.ibarrae.java.utils.ToastUtils;
 import com.example.ibarrae.java.utils.ViewUtils;
 import com.example.ibarrae.java.views.LoginView;
 
@@ -27,6 +28,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     String missingUsername;
     @BindString(R.string.error_missing_password)
     String missingPassword;
+    @BindString(R.string.error_invalid_credentials)
+    String invalidCredentials;
+    @BindString(R.string.error_login)
+    String loginError;
+    @BindString(R.string.success_login)
+    String loginSuccessful;
     LoginPresenter loginPresenter;
 
     @Override
@@ -53,5 +60,20 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         String username = ViewUtils.getText(etUsername);
         String password = ViewUtils.getText(etPassword);
         this.loginPresenter.submitLogin(new LoginDto(username, password));
+    }
+
+    @Override
+    public void showInvalidCredentialsToast() {
+        ToastUtils.longDuration(this, invalidCredentials);
+    }
+
+    @Override
+    public void showLoginErrorToast() {
+        ToastUtils.longDuration(this, loginError);
+    }
+
+    @Override
+    public void showLoginSuccessToast() {
+        ToastUtils.longDuration(this, loginSuccessful);
     }
 }

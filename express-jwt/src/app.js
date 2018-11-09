@@ -2,6 +2,7 @@ import express from 'express'
 import createError from 'http-errors'
 import bodyParser from 'body-parser'
 import jwt from 'express-jwt'
+import morgan from 'morgan'
 import { userRoutes } from './routes/user'
 import { loginRoute } from './routes/login'
 
@@ -10,6 +11,7 @@ const app = express()
 app.use(jwt({ secret: process.env.JWT_SECRET }).unless({ path: ['/api/login'] }))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(morgan('dev'))
 
 app.use('/api', loginRoute)
 app.use('/api', userRoutes)
