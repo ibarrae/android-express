@@ -1,4 +1,5 @@
 import { User } from '../models/user'
+import { Op } from 'sequelize'
 
 export const findAllUsers = () => (
   User.findAll({ raw: true })
@@ -7,8 +8,8 @@ export const findAllUsers = () => (
 export const findByUsernameAndPassword = ({ name, pass }) => (
   User.findOne({
     where: {
-      username: name,
-      password: pass
+      username: { [Op.eq]: name },
+      password: { [Op.eq]: pass }
     },
     raw: true,
     attributes: ['id']
@@ -24,7 +25,7 @@ export const createUser = (data) => (
 )
 
 export const updateUser = (id, data) => (
-  User.update({ updated_at: Date.now(), ...data }, { where: { id } })
+  User.update({ updated_at: Date.now(), ...data }, { where: { id: { [Op.eq]: id } } })
 )
 
 export const deleteUser = (id) => (
