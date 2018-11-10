@@ -5,7 +5,9 @@ env:
   - JWT_SECRET=secret NODE_ENV=test
 
 cache:
-  - yarn
+  - directories:
+    - $HOME/.yarn/
+
 matrix:
   include:
     - language: node
