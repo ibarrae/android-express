@@ -1,0 +1,21 @@
+services:
+  - postgresql
+
+env:
+  - JWT_SECRET=secret NODE_ENV=test
+
+cache:
+  - yarn
+matrix:
+  include:
+    - language: node
+      before_script:
+        - cd express-jwt
+        - psql -c 'create database test;' -U postgres
+        - nvm install
+        - nvm use
+        - npm install -g yarn
+        - yarn install
+      script:
+        - yarn run migrate
+        - yarn test
