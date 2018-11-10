@@ -10,7 +10,7 @@ matrix:
   include:
     - language: node
       before_script:
-        - cd express-jwt
+        - cd backend
         - psql -c 'create database test;' -U postgres
         - nvm install
         - nvm use
