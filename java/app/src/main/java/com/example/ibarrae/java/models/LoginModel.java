@@ -1,10 +1,10 @@
 package com.example.ibarrae.java.models;
 
 import com.example.ibarrae.java.dto.LoginDto;
-import com.example.ibarrae.java.models.api.LoginAPI;
-import com.example.ibarrae.java.models.api.RetrofitClient;
-import com.example.ibarrae.java.models.api.callback.LoginCallback;
-import com.example.ibarrae.java.models.dto.LoginResponseDto;
+import com.example.ibarrae.java.api.login.LoginAPI;
+import com.example.ibarrae.java.api.RetrofitClient;
+import com.example.ibarrae.java.api.login.LoginCallback;
+import com.example.ibarrae.java.dto.LoginResponseDto;
 import com.example.ibarrae.java.utils.EspressoIdleHandler;
 import com.example.ibarrae.java.utils.HeaderUtils;
 import com.example.ibarrae.java.views.LoginView;

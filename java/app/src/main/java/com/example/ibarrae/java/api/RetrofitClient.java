@@ -1,5 +1,6 @@
-package com.example.ibarrae.java.models.api;
+package com.example.ibarrae.java.api;
 
+import com.example.ibarrae.java.converters.NullOnEmptyConverterFactory;
 import com.example.ibarrae.java.utils.Constants;
 
 import retrofit2.Retrofit;
@@ -13,6 +14,7 @@ public class RetrofitClient {
         this.client = new Retrofit
                 .Builder()
                 .baseUrl(Constants.endpointUrl)
+                .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create()).build();
     }
 

@@ -1,4 +1,4 @@
-package com.example.ibarrae.java.models.api.callback;
+package com.example.ibarrae.java.api;
 
 public abstract class BaseCallback<V> {
     protected V view;

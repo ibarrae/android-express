@@ -1,4 +1,4 @@
-package com.example.ibarrae.java.models.dto;
+package com.example.ibarrae.java.dto;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

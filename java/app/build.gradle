@@ -27,6 +27,7 @@ ext {
     retrofitVersion = '2.4.0'
     gsonVersion = '2.8.5'
     gsonConverterVersion = '2.3.0'
+    mockWebServerVersion = '2.7.5'
 }
 
 dependencies {
@@ -43,4 +44,5 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.google.code.gson:gson:$gsonVersion"
     implementation "com.squareup.retrofit2:converter-gson:$gsonConverterVersion"
+    androidTestImplementation "com.squareup.okhttp:mockwebserver:$mockWebServerVersion"
 }

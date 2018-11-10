@@ -1,6 +1,6 @@
-package com.example.ibarrae.java.models.api;
+package com.example.ibarrae.java.api.login;
 
-import com.example.ibarrae.java.models.dto.LoginResponseDto;
+import com.example.ibarrae.java.dto.LoginResponseDto;
 import com.example.ibarrae.java.utils.Constants;
 
 import retrofit2.Call;

@@ -1,8 +1,7 @@
-package com.example.ibarrae.java.models.api.callback;
+package com.example.ibarrae.java.api.login;
 
-import android.util.Log;
-
-import com.example.ibarrae.java.models.dto.LoginResponseDto;
+import com.example.ibarrae.java.api.BaseCallback;
+import com.example.ibarrae.java.dto.LoginResponseDto;
 import com.example.ibarrae.java.utils.Constants;
 import com.example.ibarrae.java.utils.EspressoIdleHandler;
 import com.example.ibarrae.java.views.LoginView;
