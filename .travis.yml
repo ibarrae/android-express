@@ -13,11 +13,11 @@ matrix:
     - language: node
       before_script:
         - cd backend
-        - psql -c 'create database test;' -U postgres
         - nvm install
         - nvm use
         - npm install -g yarn
         - yarn install
-      script:
+        - psql -c 'create database test;' -U postgres
         - yarn run migrate
+      script:
         - yarn test
