@@ -9,5 +9,5 @@ public interface LoginView {
 
     void showLoginErrorToast();
 
-    void showLoginSuccessToast();
+    void navigateToUserList();
 }

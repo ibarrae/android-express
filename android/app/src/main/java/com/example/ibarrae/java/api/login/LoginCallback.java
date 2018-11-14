@@ -20,7 +20,7 @@ public class LoginCallback extends BaseCallback<LoginView> implements Callback<L
     public void onResponse(Call<LoginResponseDto> call, Response<LoginResponseDto> response) {
         Integer status = response.code();
         if (Constants.OK.equals(status)) {
-            view.showLoginSuccessToast();
+            view.navigateToUserList();
         } else if (Constants.UNAUTHORIZED.equals(status)) {
             view.showInvalidCredentialsToast();
         } else {

@@ -4,10 +4,12 @@ import android.support.test.espresso.Espresso;
 import android.support.test.espresso.IdlingRegistry;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.ViewAssertions;
+import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.example.ibarrae.java.activities.LoginActivity;
+import com.example.ibarrae.java.activities.UserListActivity;
 import com.example.ibarrae.java.utils.Constants;
 import com.example.ibarrae.java.utils.EspressoIdleHandler;
 import com.squareup.okhttp.mockwebserver.MockResponse;
@@ -20,6 +22,8 @@ import org.junit.runner.RunWith;
 
 import java.io.IOException;
 
+import static android.support.test.espresso.intent.Intents.intended;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
 import static android.support.test.espresso.matcher.ViewMatchers.hasFocus;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -66,21 +70,21 @@ public class LoginActivityTest {
     }
 
     @Test
-    public void loginSuccessShown() throws IOException {
+    public void navigateToUserListActivity() throws IOException {
         MockWebServer server = new MockWebServer();
         server.enqueue(new MockResponse().setResponseCode(Constants.OK));
         server.start();
         Constants.endpointUrl = server.url("/").toString();
+        Intents.init();
         Espresso.onView(withId(R.id.etUsername))
-                .perform(ViewActions.typeText("asd"));
+                .perform(ViewActions.typeText("blah"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.etPassword))
-                .perform(ViewActions.typeText("asd"));
+                .perform(ViewActions.typeText("blah"));
         Espresso.closeSoftKeyboard();
         Espresso.onView(withId(R.id.btnLogin)).perform(ViewActions.click());
-        Espresso.onView(withText(R.string.success_login))
-                .inRoot(withDecorView(not(is(rule.getActivity().getWindow().getDecorView()))))
-                .check(ViewAssertions.matches(isDisplayed()));
+        intended(hasComponent(UserListActivity.class.getName()));
+        Intents.release();
         server.shutdown();
     }
 

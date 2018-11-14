@@ -1,7 +1,6 @@
 package com.example.ibarrae.java.presenters.login;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.example.ibarrae.java.dto.LoginDto;
 import com.example.ibarrae.java.models.LoginModel;

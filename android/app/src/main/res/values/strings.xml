@@ -8,4 +8,5 @@
     <string name="error_invalid_credentials">Provided credentials are wrong</string>
     <string name="error_login">Error while trying to login, try again</string>
     <string name="success_login">Login successful</string>
+    <string name="title_activity_user_list">UserListActivity</string>
 </resources>

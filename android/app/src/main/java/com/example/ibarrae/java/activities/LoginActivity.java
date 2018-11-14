@@ -1,5 +1,6 @@
 package com.example.ibarrae.java.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -73,7 +74,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void showLoginSuccessToast() {
-        ToastUtils.longDuration(this, loginSuccessful);
+    public void navigateToUserList() {
+        Intent navigateToUserList = new Intent(getApplicationContext(), UserListActivity.class);
+        startActivity(navigateToUserList);
     }
 }

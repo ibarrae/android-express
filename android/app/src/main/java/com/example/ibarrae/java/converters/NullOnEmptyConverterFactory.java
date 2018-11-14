@@ -1,6 +1,5 @@
 package com.example.ibarrae.java.converters;
 
-import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 
@@ -15,6 +14,7 @@ public class NullOnEmptyConverterFactory extends Converter.Factory {
         final Converter<ResponseBody, ?> delegate = retrofit.nextResponseBodyConverter(this, type, annotations);
         return (Converter<ResponseBody, Object>) body -> {
             if (body.contentLength() == 0) return null;
-            return delegate.convert(body);                };
+            return delegate.convert(body);
+        };
     }
 }
