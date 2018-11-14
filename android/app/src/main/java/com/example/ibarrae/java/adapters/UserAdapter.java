@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ibarrae.java.R;
-import com.example.ibarrae.java.dto.UserDto;
+import com.example.ibarrae.java.dto.UserResponseDto;
 
 import java.util.List;
 
@@ -19,9 +19,9 @@ import butterknife.ButterKnife;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
     private Context context;
-    private List<UserDto> users;
+    private List<UserResponseDto> users;
 
-    public UserAdapter(Context context, List<UserDto> users) {
+    public UserAdapter(Context context, List<UserResponseDto> users) {
         this.context = context;
         this.users = users;
     }
@@ -35,7 +35,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserHolder userHolder, int position) {
-        UserDto userDto = users.get(position);
+        UserResponseDto userDto = users.get(position);
         userHolder.tvUsername.setText(userDto.getUsername());
         userHolder.tvCompleteName.setText(userDto.getName());
     }
@@ -47,7 +47,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
     public class UserHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.tvUserName)
+        @BindView(R.id.tvUsername)
         public TextView tvUsername;
         @BindView(R.id.tvCompleteName)
         public TextView tvCompleteName;

@@ -10,21 +10,24 @@ import android.view.View;
 
 import com.example.ibarrae.java.R;
 import com.example.ibarrae.java.adapters.UserAdapter;
-import com.example.ibarrae.java.dto.UserDto;
+import com.example.ibarrae.java.dto.UserResponseDto;
+import com.example.ibarrae.java.presenters.user.UserListPresenter;
+import com.example.ibarrae.java.presenters.user.UserListPresenterImp;
+import com.example.ibarrae.java.views.UserListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UserListActivity extends AppCompatActivity {
+public class UserListActivity extends AppCompatActivity implements UserListView {
 
     @BindView(R.id.userListToolbar)
     Toolbar upperToolbar;
     @BindView(R.id.userList)
     RecyclerView userRecyclerView;
+    UserListPresenter userListPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +35,8 @@ public class UserListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_list);
         ButterKnife.bind(this);
         setSupportActionBar(upperToolbar);
-        List<UserDto> users = new ArrayList<>();
-        users.add(new UserDto("a", "a", "a"));
-        users.add(new UserDto("b", "b", "b"));
-        UserAdapter userAdapter = new UserAdapter(this, users);
-        GridLayoutManager grid = new GridLayoutManager(this, 1);
-        userRecyclerView.setLayoutManager(grid);
-        userRecyclerView.setAdapter(userAdapter);
+        userListPresenter = new UserListPresenterImp(this);
+        userListPresenter.loadUsers();
     }
 
     @OnClick(R.id.addUserButton)
@@ -47,4 +45,11 @@ public class UserListActivity extends AppCompatActivity {
                 .setAction("Action", null).show();
     }
 
+    @Override
+    public void loadUserRecyclerView(List<UserResponseDto> users) {
+        UserAdapter userAdapter = new UserAdapter(this, users);
+        GridLayoutManager grid = new GridLayoutManager(this, 1);
+        userRecyclerView.setLayoutManager(grid);
+        userRecyclerView.setAdapter(userAdapter);
+    }
 }

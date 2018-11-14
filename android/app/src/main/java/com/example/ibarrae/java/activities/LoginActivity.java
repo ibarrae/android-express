@@ -1,5 +1,6 @@
 package com.example.ibarrae.java.activities;
 
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import com.example.ibarrae.java.presenters.login.LoginPresenterImp;
 import com.example.ibarrae.java.utils.ToastUtils;
 import com.example.ibarrae.java.utils.ViewUtils;
 import com.example.ibarrae.java.views.LoginView;
+import com.pixplicity.easyprefs.library.Prefs;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -43,6 +45,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         this.loginPresenter = new LoginPresenterImp(this);
+        new Prefs.Builder()
+                .setContext(this)
+                .setMode(ContextWrapper.MODE_PRIVATE)
+                .setPrefsName(getPackageName())
+                .setUseDefaultSharedPreference(true)
+                .build();
     }
 
     @Override

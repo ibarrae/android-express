@@ -1,12 +1,25 @@
 package com.example.ibarrae.java.dto;
 
-public class UserDto {
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+public class UserResponseDto {
+
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("username")
+    @Expose
     private String username;
+    @SerializedName("name")
+    @Expose
     private String name;
+    @SerializedName("password")
+    @Expose
     private String password;
 
-    public UserDto(String username, String name, String password) {
+    public UserResponseDto(Integer id, String username, String name, String password) {
+        this.id = id;
         this.username = username;
         this.name = name;
         this.password = password;
