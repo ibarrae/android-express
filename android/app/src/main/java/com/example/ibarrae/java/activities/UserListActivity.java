@@ -13,6 +13,7 @@ import com.example.ibarrae.java.adapters.UserAdapter;
 import com.example.ibarrae.java.dto.UserResponseDto;
 import com.example.ibarrae.java.presenters.user.UserListPresenter;
 import com.example.ibarrae.java.presenters.user.UserListPresenterImp;
+import com.example.ibarrae.java.utils.EspressoIdleHandler;
 import com.example.ibarrae.java.views.UserListView;
 
 import java.util.List;
@@ -37,6 +38,7 @@ public class UserListActivity extends AppCompatActivity implements UserListView 
         setSupportActionBar(upperToolbar);
         userListPresenter = new UserListPresenterImp(this);
         userListPresenter.loadUsers();
+        EspressoIdleHandler.decrement();
     }
 
     @OnClick(R.id.addUserButton)

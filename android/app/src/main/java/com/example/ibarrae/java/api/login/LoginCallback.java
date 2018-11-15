@@ -25,10 +25,11 @@ public class LoginCallback extends BaseCallback<LoginView> implements Callback<L
             view.navigateToUserList();
         } else if (Constants.UNAUTHORIZED.equals(status)) {
             view.showInvalidCredentialsToast();
+            EspressoIdleHandler.decrement();
         } else {
             view.showLoginErrorToast();
+            EspressoIdleHandler.decrement();
         }
-        EspressoIdleHandler.decrement();
     }
 
     @Override
