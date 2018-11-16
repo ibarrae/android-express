@@ -1,6 +1,5 @@
 package com.example.ibarrae.java;
 
-import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.IdlingRegistry;
 import android.support.test.espresso.IdlingResource;

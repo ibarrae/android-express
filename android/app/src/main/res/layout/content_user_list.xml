@@ -9,13 +9,13 @@
     tools:showIn="@layout/activity_user_list">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/userList"
         android:layout_width="336dp"
         android:layout_height="495dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:id="@+id/userList"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

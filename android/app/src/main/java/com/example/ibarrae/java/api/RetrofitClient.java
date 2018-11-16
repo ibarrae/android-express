@@ -18,7 +18,7 @@ public class RetrofitClient {
                 .addConverterFactory(GsonConverterFactory.create()).build();
     }
 
-    public <S> S getService(Class<S> service){
+    public <S> S getService(Class<S> service) {
         return this.client.create(service);
     }
 
