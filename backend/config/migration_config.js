@@ -1,4 +1,4 @@
-const environment = require('../src/utils/environment')
+const environment = require('../src/utils/environment.ts')
 const Sequelize = require('sequelize')
 
 module.exports = {
