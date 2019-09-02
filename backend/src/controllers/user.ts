@@ -6,18 +6,14 @@ import {
   deleteUser
 } from "../crud/users";
 import { Response } from "express";
-import { Request } from "express-serve-static-core";
+import { Request, Dictionary } from "express-serve-static-core";
 import { UserInstance } from "../models/user";
 
-export const getAllUsersController = (_req: Request, res: Response) => {
+export const getAllUsersController = (_: Request, res: Response) => {
   findAllUsers().then(users => res.status(200).json(users));
 };
 
-type UserParams = {
-  id: string;
-};
-
-export const getUserController = (req: Request<UserParams>, res: Response) => {
+export const getUserController = (req: Request, res: Response) => {
   const id = req.params.id;
   if (!id) {
     res.status(400).send("Bad request.");
@@ -63,7 +59,7 @@ export const updateUserController = (req: Request, res: Response) => {
 };
 
 export const deleteUserController = (
-  req: Request<UserParams>,
+  req: Request,
   res: Response
 ) => {
   const { id } = req.params;
