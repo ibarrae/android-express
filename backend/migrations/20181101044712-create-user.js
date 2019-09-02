@@ -1,4 +1,4 @@
-const utils = require('../src/models/utils')
+const utils = require('../src/models/utils.ts')
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
