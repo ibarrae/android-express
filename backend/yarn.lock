@@ -18,6 +18,13 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@types/basic-auth@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@types/basic-auth/-/basic-auth-1.1.2.tgz#810fbded879f14327fc1d3413bdb92cfe9e24f73"
+  integrity sha512-NzkkcC+gkkILWaBi3+/z/3do6Ybk6TWeTqV5zCVXmG2KaBoT5YqlJvfqP44HCyDA+Cu58pp7uKAxy/G58se/TA==
+  dependencies:
+    "@types/node" "*"
+
 "@types/bluebird@*":
   version "3.5.27"
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.27.tgz#61eb4d75dc6bfbce51cf49ee9bbebe941b2cb5d0"
@@ -103,6 +110,13 @@
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/@types/http-errors/-/http-errors-1.6.2.tgz#8d613d31be6871d093ef4640ae3272507156ba59"
   integrity sha512-mzJX3tIbtadNZQIDbfA9eW+mAjww7GY7WYcfKDGB5SSXMAzI8KD+5fvyX5FqcKtns346+WGwAJJ8cPsDxMz0lw==
+
+"@types/jsonwebtoken@^8.3.3":
+  version "8.3.3"
+  resolved "https://registry.yarnpkg.com/@types/jsonwebtoken/-/jsonwebtoken-8.3.3.tgz#eafeea8239c74b02263d204c0e1175d5cd0bb85f"
+  integrity sha512-mofwpvFbm2AUxD5mg4iQPc2o/+ubM200R/L86kR17SeC99jM3gEnB9hy16ln3kZkxM5LnGpDJclxeUNEHhehng==
+  dependencies:
+    "@types/node" "*"
 
 "@types/lodash@*":
   version "4.14.138"

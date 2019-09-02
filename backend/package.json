@@ -28,9 +28,11 @@
     "sequelize": "^4.41.0"
   },
   "devDependencies": {
+    "@types/basic-auth": "^1.1.2",
     "@types/dotenv": "^6.1.1",
     "@types/express-jwt": "^0.0.42",
     "@types/http-errors": "^1.6.2",
+    "@types/jsonwebtoken": "^8.3.3",
     "@types/sequelize": "^4.28.4",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
