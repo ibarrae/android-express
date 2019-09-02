@@ -9,13 +9,11 @@ export const withDB =
     ? new Sequelize("test", "postgres", "", {
         dialect: "postgres",
         host: "127.0.0.1",
-        logging: false,
-        operatorsAliases: true
+        logging: false
       })
     : new Sequelize(dbName, dbUser, dbPassword, {
         dialect: "postgres",
         host: dbHost,
-        operatorsAliases: true
       });
 
 export const usersTable = "jwt_users";

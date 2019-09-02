@@ -4,23 +4,25 @@ import { server } from '../src/app'
 import { User } from '../src/models/user'
 import { mockUserData, truncateParams } from './utils'
 import { withDB } from '../src/models/utils'
+import "mocha";
 
 chai.use(chaiHttp)
 
 const serverAgent = chai.request.agent(server)
 
+beforeEach(async done => {
+  await User.create(mockUserData);
+  done();
+})
+
+afterEach(async done => {
+  await User.destroy(truncateParams)
+  await withDB
+      .query('ALTER SEQUENCE jwt_users_id_seq RESTART WITH 1;');
+  done();
+})
+
 describe('/api/login', () => {
-  before(done => {
-    User.create(mockUserData).then(_user => done())
-  })
-
-  after(done => {
-    User.destroy(truncateParams).then(_user => null)
-    withDB
-      .query('ALTER SEQUENCE jwt_users_id_seq RESTART WITH 1;')
-      .then(_t => done())
-  })
-
   describe('when not sending headers', () => {
     it('should respond with status 400', done => {
       serverAgent.post('/api/login').end((_err, res) => {
@@ -57,17 +59,6 @@ describe('/api/login', () => {
 })
 
 describe('/api/users', () => {
-  before(done => {
-    User.create(mockUserData).then(_user => done())
-  })
-
-  after(done => {
-    User.destroy(truncateParams).then(_user => null)
-    withDB
-      .query('ALTER SEQUENCE jwt_users_id_seq RESTART WITH 1;')
-      .then(_t => done())
-  })
-
   describe('when requesting POST with no body', () => {
     it('should respond with status 400', done => {
       serverAgent
@@ -126,17 +117,6 @@ describe('/api/users', () => {
 })
 
 describe('/api/users/:id', () => {
-  before(done => {
-    User.create(mockUserData).then(_user => done())
-  })
-
-  after(done => {
-    User.destroy(truncateParams).then(_user => null)
-    withDB
-      .query('ALTER SEQUENCE jwt_users_id_seq RESTART WITH 1;')
-      .then(_t => done())
-  })
-
   describe('when requesting GET and user is not found', () => {
     it('should respond with status 404', done => {
       serverAgent
