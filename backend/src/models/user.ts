@@ -9,7 +9,7 @@ export interface UserAttributes {
   updated_at: number;
 }
 
-type UserInstance = Instance<UserAttributes> & UserAttributes;
+export type UserInstance = Instance<UserAttributes> & UserAttributes;
 
 export const User = withDB.define<UserInstance, UserAttributes>(
   usersTable,
