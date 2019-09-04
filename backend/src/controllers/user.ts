@@ -6,8 +6,8 @@ import {
   deleteUser
 } from "../crud/users";
 import { Response } from "express";
-import { Request, Dictionary } from "express-serve-static-core";
-import { UserInstance } from "../models/user";
+import { Request } from "express-serve-static-core";
+import { DbUser } from "../models/user";
 
 export const getAllUsersController = (_: Request, res: Response) => {
   findAllUsers().then(users => res.status(200).json(users));
@@ -22,7 +22,7 @@ export const getUserController = (req: Request, res: Response) => {
   }
 };
 
-const handleGetUser = (user: UserInstance | null, res: Response) => {
+const handleGetUser = (user: DbUser | null, res: Response) => {
   if (user === null) {
     res.status(404).end();
   } else {

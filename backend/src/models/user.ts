@@ -1,5 +1,6 @@
-import { withDB, stringType, dateType, usersTable } from "./utils";
-import { Instance } from "sequelize";
+import { withDB, usersTable } from "./utils";
+import { STRING, DATE, Model } from "sequelize";
+import { BuildOptions } from "sequelize";
 
 export interface UserAttributes {
   name: string;
@@ -9,16 +10,21 @@ export interface UserAttributes {
   updated_at: number;
 }
 
-export type UserInstance = Instance<UserAttributes> & UserAttributes;
+export class DbUser extends Model {
+  public name!: string;
+  public username!: string;
+  public password!: string;
+  public created_at!: number;
+  public updated_at!: number;
+}
 
-export const User = withDB.define<UserInstance, UserAttributes>(
-  usersTable,
+DbUser.init(
   {
-    name: stringType,
-    username: stringType,
-    password: stringType,
-    created_at: dateType,
-    updated_at: dateType
+    name: STRING,
+    username: STRING,
+    password: STRING,
+    created_at: DATE,
+    updated_at: DATE
   },
-  { timestamps: false }
+  { sequelize: withDB, tableName: usersTable, timestamps: false }
 );

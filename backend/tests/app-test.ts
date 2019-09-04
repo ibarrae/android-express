@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai'
 import chaiHttp from 'chai-http'
 import { server } from '../src/app'
-import { User } from '../src/models/user'
+import { DbUser } from '../src/models/user'
 import { mockUserData, truncateParams } from './utils'
 import { withDB } from '../src/models/utils'
 import "mocha";
@@ -11,12 +11,12 @@ chai.use(chaiHttp)
 const serverAgent = chai.request.agent(server)
 
 beforeEach(async done => {
-  await User.create(mockUserData);
+  await DbUser.create(mockUserData);
   done();
 })
 
 afterEach(async done => {
-  await User.destroy(truncateParams)
+  await DbUser.destroy(truncateParams)
   await withDB
       .query('ALTER SEQUENCE jwt_users_id_seq RESTART WITH 1;');
   done();
