@@ -1,12 +1,11 @@
-const environment = require('../src/utils/environment.ts')
 const Sequelize = require('sequelize')
 
 module.exports = {
   development: {
-    username: environment.dbUser,
-    password: environment.dbPassword,
-    database: environment.dbName,
-    host: environment.dbHost,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
     dialect: 'postgres'
   },
   test: {
@@ -15,6 +14,5 @@ module.exports = {
     database: 'test',
     host: '127.0.0.1',
     dialect: 'postgres',
-    operatorsAliases: Sequelize.Op
   }
 }
