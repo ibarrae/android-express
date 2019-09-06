@@ -5,7 +5,7 @@ const result = dotenv.config();
 const { jwtSecret, dbHost, dbUser, dbPassword, dbName } = (() => {
   if (process.env.NODE_ENV === "test") {
     return {
-      jwtSecret: result.parsed!.JWT_SECRET,
+      jwtSecret: process.env.JWT_SECRET as string,
       dbHost: "",
       dbName: "",
       dbPassword: "",
