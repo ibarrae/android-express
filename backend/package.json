@@ -4,10 +4,12 @@
   "description": "Express JS with JWT authentication",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon src/app.js --exec babel-node",
+    "start": "node -r ts-node/register ./src/app.ts",
+    "start:watch": "nodemon",
     "migrate": "babel-node node_modules/.bin/sequelize db:migrate",
     "migrate:undo:all": "babel-node node_modules/.bin/sequelize db:migrate:undo:all",
-    "test": "mocha --exit --require babel-register tests/*-test.js"
+    "test": "mocha --exit -r ts-node/register tests/*-test.ts",
+    "typecheck": "tsc"
   },
   "author": "Esteban Ibarra",
   "license": "MIT",
@@ -15,30 +17,34 @@
   "dependencies": {
     "basic-auth": "^2.0.1",
     "dotenv": "^6.1.0",
-    "eslint": "^5.8.0",
     "express": "^4.16.4",
     "express-jwt": "^5.3.1",
     "global": "^4.3.2",
     "http-errors": "^1.7.1",
     "jsonwebtoken": "^8.3.0",
-    "mocha": "^5.2.0",
     "pg": "^7.6.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.41.0"
+    "sequelize": "^5.18.0"
   },
   "devDependencies": {
+    "@types/basic-auth": "^1.1.2",
+    "@types/bluebird": "^3.5.27",
+    "@types/dotenv": "^6.1.1",
+    "@types/express-jwt": "^0.0.42",
+    "@types/http-errors": "^1.6.2",
+    "@types/jsonwebtoken": "^8.3.3",
+    "@types/mocha": "^5.2.7",
+    "@types/validator": "^10.11.3",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.2.0",
     "nodemon": "^1.18.5",
-    "sequelize-cli": "^5.2.0"
+    "sequelize-cli": "^5.2.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.6.2"
   }
 }

@@ -1,8 +1,6 @@
-const utils = require('../src/models/utils')
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable(utils.usersTable, {
+    return queryInterface.createTable('jwt_users', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -28,6 +26,6 @@ module.exports = {
     })
   },
   down: (queryInterface, _Sequelize) => {
-    return queryInterface.dropTable(utils.usersTable)
+    return queryInterface.dropTable('jwt_users')
   }
 }

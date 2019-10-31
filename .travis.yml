@@ -23,6 +23,7 @@ matrix:
         - psql -c 'create database test;' -U postgres
         - yarn run migrate
       script:
+        - yarn typecheck
         - yarn test
 
     - language: android
